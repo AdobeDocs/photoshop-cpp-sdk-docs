@@ -174,15 +174,15 @@ resource 'aete' (16000, "Dissolve dictionary", purgeable)
 				"clear headed",								/* optional description */
 				
 				"cool",										/* second value */
-				dispositionCool,							/* 'moo1' */
+				dispositionCool,							/* 'moD1' */
 				"got the blues",							/* optional description */
 				
 				"hot",										/* third value */
-				dispositionHot,								/* 'moo2' */
+				dispositionHot,								/* 'moD2' */
 				"red-faced",								/* optional description */
 				
 				"sick",										/* fourth value */
-				dispositionSick,							/* 'moo3' */
+				dispositionSick,							/* 'moD3' */
 				"green with envy"							/* optional description */
 			}
 		}
