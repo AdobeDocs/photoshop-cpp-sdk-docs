@@ -15,7 +15,7 @@ module.exports = {
   siteMetadata: {
     versions: [
       {
-        title: '2024',
+        title: '2025',
         selected: true
       }
     ],
@@ -28,8 +28,8 @@ module.exports = {
         title: 'API Reference',
         menu: [
           {
-            title: 'Photoshop C++ SDK 2024',
-            description: 'Photoshop C++ SDK 2024',
+            title: 'Photoshop C++ SDK 2025',
+            description: 'Photoshop C++ SDK 2025',
             path: '/api/index.md'
           }
         ]
