@@ -29,7 +29,7 @@ This documentation provides instructions for Photoshop C++ SDK.
 
 ### Get Started
 
-[Quickstart Guide](sdk/pluginsdk/documentation/index.md)
+[Quickstart Guide](sdk/pluginsdk/documentation/)
 
 Get started with the Photoshop C++ SDK.
 
@@ -37,4 +37,4 @@ Get started with the Photoshop C++ SDK.
 
 ### API References
 
-[Photoshop C++ Plugin SDK](../../pluginsdk/)
+[Photoshop C++ Plugin SDK](sdk/pluginsdk/)
