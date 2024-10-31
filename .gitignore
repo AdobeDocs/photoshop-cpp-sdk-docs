@@ -31,4 +31,15 @@ cypress/screenshots
 
 # lerna
 lerna-debug.log
+
+# Standard build system files
+xcuserdata/
+
+# Visual Studio Exclusions
+*.vcxproj.user
+.vs/
+.vscode/
+ScratchStats.txt
+*.diagsession
+
 pluginsdk/samplecode/Output
