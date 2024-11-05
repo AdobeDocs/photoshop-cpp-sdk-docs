@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/photoshop-cpp-sdk/',
+  pathPrefix: process.env.PATH_PREFIX || '/photoshop-cpp-sdk-docs/',
   siteMetadata: {
     versions: [
       {
