@@ -1,5 +1,5 @@
 - pathPrefix:
-    - /photoshop-cpp-sdk/
+    - /photoshop-cpp-sdk-docs/
 
 - versions:
     - [v2.0](/) selected
