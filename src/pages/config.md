@@ -1,27 +1,16 @@
 - pathPrefix:
-    - /photoshop-cpp-sdk-docs/
+    - /photoshop-cpp-sdk/
 
 - versions:
-    - [v2.0](/) selected
-    - [v1.4](https://github.com/AdobeDocs/dev-site) 
+    - [2025](/) selected
 
 - pages:
-    - [Cat Analytics](/)
-    - [Guides](/guides/)
+    - [Photoshop C++ SDK](/)
+    - [Guides](/guides/index.md)
     - API Reference
-        - [Cat Reference v2.0](/api/index.md)
-        - [Cat Reference v1.4](/api/1.4.md)
+        - [Photoshop C++ SDK 2025](/api/index.md)
     - [Support](/support/)
 
 - subPages:
-    - [Get Started](/guides/) 
-        - [Dummy an OAuth Client](/guides/dummy_oauth_client/) 
-        - [Dummy OAuth using POSTMAN](/guides/dummy_using_postman/) 
-    - [Cat Metrics API](/guides/dummy_metrics_api/) 
-    - [Migrating](/guides/migrating/) 
     - [Overview](/support/) header
-        - [Help](/support/) 
-        - [FAQ](/support/FAQ/) 
-        - [How to contribute](/support/contribute/) 
-    - [Community](/support/community/) header
-        - [Information](/support/community/) 
+        - [Help](/support/)
