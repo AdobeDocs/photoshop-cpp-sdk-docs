@@ -1,65 +1,35 @@
 ---
-name: Deployment
+name: Production Deployment
 on:
-  workflow_dispatch
-
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Select environment to deploy to"
+        type: choice
+        required: true
+        default: "prod"
+        options:
+          - "prod"
+          - "stage & prod"
+      baseSha:
+        description: "Use base SHA commit to deploy from (empty string defaults to last commit before HEAD)"
+        type: string
+        required: false
+        default: ""
+      deployAll:
+        description: "Force deploy all files"
+        type: boolean
+        default: false
 jobs:
-  set-state:
-    runs-on: ubuntu-latest
-    outputs:
-      path_prefix: ${{ steps.get_path_prefix.outputs.path_prefix }}
-      branch_short_ref: ${{ steps.get_branch.outputs.branch }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Get pathPrefix
-        uses: actions/github-script@v6
-        id: get_path_prefix
-        with:
-          script: |
-            const script = require('./.github/scripts/get-path-prefix.js');
-            script({ core });
-          result-encoding: string
-      - name: Get branch name
-        shell: bash
-        run: echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
-        id: get_branch
-
-  echo-state:
-    needs: [set-state]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Repository org - ${{ github.event.repository.owner.login }}"
-      - run: echo "Repository name - ${{ github.event.repository.name }}"
-      - run: echo "Repository branch - ${{ needs.set-state.outputs.branch_short_ref }}"
-      - run: echo "Path prefix - ${{ needs.set-state.outputs.path_prefix }}"
-
-
-  build:
-    defaults:
-      run:
-        shell: bash
-    needs: [set-state]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node v20 for Yarn v3
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20.19.5" # Current LTS version
-
-      - name: Enable Corepack for Yarn v3
-        run: corepack enable
-
-      - name: Install Dependencies
-        run: yarn install
-
-      - name: Build navigation file
-        run: yarn buildNavigation
-
-      - name: Publish markdown files in ./src/pages
-        run: |
-            bash .github/scripts/publish-mds.sh "./src/pages" "${{ needs.set-state.outputs.path_prefix }}"
+  deployment:
+    name: Deployment
+    if: github.actor != 'adp-devsite-app[bot]' && github.repository != 'AdobeDocs/dev-docs-template'
+    uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy-v2.yml@main
+    secrets: inherit
+    with:
+      env: ${{ inputs.env || 'prod' }}
+      baseSha: ${{ inputs.baseSha || '' }}
+      deployAll: ${{ inputs.deployAll || false }}
